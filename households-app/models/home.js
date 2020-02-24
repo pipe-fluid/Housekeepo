@@ -3,16 +3,32 @@
 const mongoose = require('mongoose');
 
 const homeSchema = new mongoose.Schema({
-  members: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+  members: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    }
+  ],
+  address: {
+    type: String,
     required: true
   },
-  address: {},
-  zipcode: {},
-  phone: {},
-  pictures: {},
-  geolocation: {}
+  zipcode: {
+    type: String
+  },
+  phone: {
+    type: Number
+  },
+  pictures: [
+    {
+      type: String
+    }
+  ],
+  geolocation: {
+    lat: Number,
+    lng: Number
+  }
 });
 
 module.exports = mongoose.model('Home', homeSchema);

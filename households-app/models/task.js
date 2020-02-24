@@ -8,7 +8,10 @@ const taskSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  date: {},
+  timestamps: {
+    createdAt: 'creationDate',
+    updatedAt: 'updateDate'
+  },
   household: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Household'
@@ -22,8 +25,14 @@ const taskSchema = new mongoose.Schema({
     type: String,
     enum: ['regular', 'important', 'urgent']
   },
-  deadline: {},
-  pictures: {},
+  deadline: {
+    type: String
+  },
+  pictures: [
+    {
+      type: String
+    }
+  ],
   price: {
     currency: {
       type: String,
