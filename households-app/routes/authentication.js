@@ -6,6 +6,16 @@ const passport = require('passport');
 
 const router = new Router();
 
+router.get('/github', passport.authenticate('github'));
+
+router.get(
+  '/github-callback',
+  passport.authenticate('github', {
+    successRedirect: '/',
+    failureRedirect: '/authentication/sign-in'
+  })
+);
+
 router.get('/sign-up', (req, res, next) => {
   res.render('sign-up');
 });
@@ -13,7 +23,7 @@ router.get('/sign-up', (req, res, next) => {
 router.post(
   '/sign-up',
   passport.authenticate('local-sign-up', {
-    successRedirect: '/private',
+    successRedirect: '/',
     failureRedirect: '/sign-up'
   })
 );
