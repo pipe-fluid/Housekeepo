@@ -3,6 +3,10 @@
 const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
@@ -26,7 +30,7 @@ const taskSchema = new mongoose.Schema({
     enum: ['regular', 'important', 'urgent']
   },
   deadline: {
-    type: String
+    type: Date
   },
   pictures: [
     {

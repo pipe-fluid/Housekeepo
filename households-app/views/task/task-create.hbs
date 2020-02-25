@@ -1,0 +1,21 @@
+<h1>Create a New Task</h1>
+
+<form method="POST" enctype="multipart/form-data">
+  <label for="input-title">Task Title</label>
+  <input type="text" name="title" id="input-title" placeholder="Name your task" maxlength="80"/>
+
+  <label for="input-urgency">How urgent is your task?</label>
+  <select name="urgency">
+    <option value="regular">Regular task</option> 
+    <option value="important" selected>Important task</option>
+    <option value="urgent">Urgent task</option>
+  </select>
+
+  <label for="deadline">Task deadline:</label>
+  <input type="date" id="deadline" name="deadline">
+
+  <label for="input-photos">Pictures</label>
+  <input type="file" name="photos" id="input-photos" accept="image/*" multiple />
+  
+  <button>Create Post</button>
+</form>

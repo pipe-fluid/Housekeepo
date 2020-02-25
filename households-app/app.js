@@ -14,6 +14,8 @@ const serveFavicon = require('serve-favicon');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const passportConfigure = require('./passport-configuration.js');
 const indexRouter = require('./routes/index');
+const taskRouter = require('./routes/tasks');
+
 const authenticationRouter = require('./routes/authentication');
 
 const app = express();
@@ -26,8 +28,7 @@ app.use(
   sassMiddleware({
     src: join(__dirname, 'public'),
     dest: join(__dirname, 'public'),
-    outputStyle:
-      process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
+    outputStyle: process.env.NODE_ENV === 'development' ? 'nested' : 'compressed',
     force: process.env.NODE_ENV === 'development',
     sourceMap: true
   })
@@ -59,6 +60,7 @@ app.use(bindUserToViewLocals);
 
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
+app.use('/tasks', taskRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

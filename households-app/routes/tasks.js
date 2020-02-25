@@ -1,23 +1,16 @@
 'use strict';
 
 const { Router } = require('express');
-
 const passport = require('passport');
-
+const routeGuard = require('./../middleware/route-guard');
 const router = new Router();
 
-router.get('/github', passport.authenticate('github'));
+router.get('/', (req, res, next) => {
+  res.render('./task/tasks', { title: 'Tasks Page' });
+});
 
-router.get(
-  '/github-callback',
-  passport.authenticate('github', {
-    successRedirect: '/',
-    failureRedirect: '/authentication/sign-in'
-  })
-);
-
-router.get('/sign-up', (req, res, next) => {
-  res.render('sign-up');
+router.get('/create', (req, res, next) => {
+  res.render('./task/task-create');
 });
 
 router.post(
@@ -43,6 +36,14 @@ router.post(
 router.post('/sign-out', (req, res, next) => {
   req.logout();
   res.redirect('/');
+});
+
+module.exports = router;
+
+('use strict');
+
+router.get('/private', routeGuard, (req, res, next) => {
+  res.render('private');
 });
 
 module.exports = router;
