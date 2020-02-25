@@ -63,7 +63,7 @@ app.use(bindUserToViewLocals);
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/tasks', taskRouter);
-app.use('/household', householdRouter);
+app.use('/households', householdRouter);
 app.use('/users', userRouter);
 
 // Catch missing routes and forward to error handler
