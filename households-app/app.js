@@ -15,6 +15,8 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 const passportConfigure = require('./passport-configuration.js');
 const indexRouter = require('./routes/index');
 const taskRouter = require('./routes/tasks');
+const householdRouter = require('./routes/households');
+const userRouter = require('./routes/users');
 
 const authenticationRouter = require('./routes/authentication');
 
@@ -61,6 +63,8 @@ app.use(bindUserToViewLocals);
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/tasks', taskRouter);
+app.use('/household', householdRouter);
+app.use('/users', userRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
