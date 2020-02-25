@@ -1,6 +1,6 @@
 <h1>Create a New Task</h1>
 
-<form method="POST" action="/tasks/:taskId/edit">
+<form method="POST" action="/tasks/{{task._id}}/edit">
   <label for="input-title">Task Title</label>
   <input type="text" name="title" id="input-title" maxlength="80" value="{{ task.title }}"/>
 

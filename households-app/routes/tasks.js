@@ -62,8 +62,6 @@ router.get('/:taskId/edit', (req, res, next) => {
 
   Task.findOne({
     _id: taskId
-    // ,
-    // author: req.user._id
   })
     .then(task => {
       if (task) {
@@ -83,8 +81,7 @@ router.post('/:taskId/edit', routeGuard(true), (req, res, next) => {
 
   Task.findOneAndUpdate(
     {
-      _id: taskId,
-      author: req.user._id
+      _id: taskId
     },
     {
       title,
