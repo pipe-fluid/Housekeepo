@@ -1,0 +1,6 @@
+<p>Single task view page!</p>
+{{#each comment}}
+  {{>author}}
+  {{>content}}
+{{/each}}
+<a href="/tasks/:taskId/comment">Make a comment</a>

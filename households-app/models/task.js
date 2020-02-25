@@ -4,26 +4,23 @@ const mongoose = require('mongoose');
 
 const taskSchema = new mongoose.Schema({
   title: {
-    type: String,
-    required: true
+    type: String
   },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    ref: 'User'
   },
-  timestamps: {
-    createdAt: 'creationDate',
-    updatedAt: 'updateDate'
-  },
+  // timestamps: {
+  //   createdAt: 'creationDate',
+  //   updatedAt: 'updateDate'
+  // },
   household: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Household'
   },
   home: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Home',
-    required: true
+    ref: 'Home'
   },
   urgency: {
     type: String,
@@ -57,7 +54,9 @@ const taskSchema = new mongoose.Schema({
         'ARS'
       ]
     },
-    type: Number
+    amount: {
+      type: Number
+    }
   },
   comments: {
     type: mongoose.Schema.Types.ObjectId,

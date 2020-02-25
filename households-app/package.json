@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./server",
-    "dev": "nodemon ./server",
+    "dev": "nodemon ./server -e js,json,html,hbs,pug",
     "dev:debug": "DEBUG=households-app* npm run dev",
     "lint": "eslint ."
   },
