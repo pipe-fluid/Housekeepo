@@ -14,10 +14,10 @@ const taskSchema = new mongoose.Schema({
   //   createdAt: 'creationDate',
   //   updatedAt: 'updateDate'
   // },
-  household: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Household'
-  },
+  // household: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'Household'
+  // },
   home: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Home'

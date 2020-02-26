@@ -11,7 +11,11 @@ Sign up now and make your home tidy as never before!
 
 <img src="https://source.unsplash.com/JIUjvqe2ZHg/1600x900" alt="{{ title }}" >
 
-</p>
-<a href="/authentication/sign-up">
-<button>Register Now!</button></a>
+{{#if user}}
+
+{{else}}
+  </p>
+  <a href="/authentication/sign-up">
+  <button>Register Now!</button></a>
+{{/if}}
 

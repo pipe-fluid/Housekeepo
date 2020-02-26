@@ -1,20 +1,12 @@
 LINK SCHEMA:
 
 home single view
-[dislpay home info, display list of members, display list of tasks]
-{
-edit home -> redirects to home edit -> back to home single view
-create task -> redirects to task create -> back to home single view
-~
-single task -> redirects to single task view
-every task -> redirects to tasks (display all home's tasks)
 invite members -> redirect to home invite
 }
 
 single task view
 [display task info, comments]
 {
-edit task -> redirects to task edit -> back to task single view
 delete task -> redirects to task delete -> back to home single view
 create comment -> redirects to comment create -> back to task single view
 delete comment -> redirects to comment delete -> back to task single view

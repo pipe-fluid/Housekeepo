@@ -5,6 +5,7 @@ const routeGuard = require('./../middleware/route-guard');
 const router = new Router();
 const Task = require('../models/Task');
 const Comment = require('../models/Comment');
+const Home = require('../models/Home');
 
 router.get('/', (req, res, next) => {
   res.render('task/tasks', { title: 'Tasks Page' });
@@ -121,10 +122,12 @@ router.post('/:taskId/edit', routeGuard(true), (req, res, next) => {
 });
 
 router.post('/:taskId/delete', routeGuard(true), (req, res, next) => {
-  Task.deleteOne({ _id: req.params.taskId })
+  const taskId = req.params.taskId;
+  console.log(taskId);
+  Task.findByIdAndDelete({ _id: taskId })
     .then(deleted => {
       console.log('deleted', deleted);
-      res.redirect('/tasks');
+      res.redirect(`/home/${deleted.home}`);
     })
     .catch(error => {
       console.log(error);
@@ -135,18 +138,17 @@ router.post('/:taskId/delete', routeGuard(true), (req, res, next) => {
 
 router.get('/:taskId', (req, res, next) => {
   const taskId = req.params.taskId;
-
   let task;
 
   Task.findById(taskId)
-    .then(document => {
-      if (!document) {
-        next(new Error('NOT_FOUND'));
-      } else {
-        task = document;
-        res.render('task/task-single', { task });
-        console.log(task);
-      }
+    .then(taskInfo => {
+      task = taskInfo;
+      return Comment.find({ task: taskId }).populate('author');
+    })
+    .then(comments => {
+      console.log(comments);
+      res.render('task/task-single', { task, comments });
+      console.log(task);
     })
     .catch(error => {
       console.log(error);
@@ -154,5 +156,16 @@ router.get('/:taskId', (req, res, next) => {
       next(error);
     });
 });
+
+//   Home.findById(homeId)
+//     .populate('members')
+//     .then(homeInfo => {
+//       home = homeInfo;
+//       return Task.find({ home: homeId });
+//     })
+//     .then(tasks => {
+//       console.log(home);
+//       res.render('./home/home-single', { home, tasks });
+//     })
 
 module.exports = router;

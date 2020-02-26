@@ -1,9 +1,8 @@
 <p>Single task view page!</p>
-{{comment}}
+<h1>{{task.title}}</h1>
 
-
-{{#each comment}}
-  {{author}}
+{{#each comments}}
+  {{author.name}}
   {{content}}
 {{/each}}
 
