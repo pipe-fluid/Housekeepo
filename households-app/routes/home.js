@@ -52,6 +52,12 @@ router.post('/:homeId/edit', routeGuard(true), (req, res, next) => {
   const { homeId } = req.params;
   const { address, zipcode, phone, name } = req.body;
 
+  /*
+  here you will receive a user email with req.body.member
+  first you will have to find that user in the data base to access the user_id.
+  after finding the user, find the home and update it with all the information
+*/
+
   Home.findOneAndUpdate(
     {
       _id: homeId
@@ -59,6 +65,7 @@ router.post('/:homeId/edit', routeGuard(true), (req, res, next) => {
     {
       name,
       address,
+      //TODO - Push members
       zipcode,
       phone
     }
