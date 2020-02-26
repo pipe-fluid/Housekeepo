@@ -16,7 +16,7 @@ router.get('/create', (req, res, next) => {
 router.post(
   '/sign-up',
   passport.authenticate('local-sign-up', {
-    successRedirect: '/',
+    successRedirect: '/dashboard',
     failureRedirect: '/authentication/sign-up'
   })
 );
@@ -28,7 +28,7 @@ router.get('/sign-in', (req, res, next) => {
 router.post(
   '/sign-in',
   passport.authenticate('local-sign-in', {
-    successRedirect: '/',
+    successRedirect: '/dashboard',
     failureRedirect: '/authentication/sign-in'
   })
 );
@@ -38,12 +38,8 @@ router.post('/sign-out', (req, res, next) => {
   res.redirect('/');
 });
 
-module.exports = router;
-
-('use strict');
-
-router.get('/private', routeGuard, (req, res, next) => {
-  res.render('private');
+router.get('/:userId/dashboard', routeGuard(true), (req, res, next) => {
+  res.render('dashboard');
 });
 
 module.exports = router;

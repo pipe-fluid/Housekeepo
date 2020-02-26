@@ -3,8 +3,8 @@
 const { Router } = require('express');
 const routeGuard = require('./../middleware/route-guard');
 const router = new Router();
-const Task = require('./../models/task');
-const Comment = require('./../models/comment');
+const Task = require('../models/Task');
+const Comment = require('../models/Comment');
 
 router.get('/', (req, res, next) => {
   res.render('task/tasks', { title: 'Tasks Page' });

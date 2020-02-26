@@ -1,6 +1,10 @@
 <h1>Edit home info</h1>
 
 <form method="POST" action="/tasks/{{home._id}}/edit">
+
+  <label for="name">Name</label>
+  <input type="text" name="name" id="name" value="{{home.name}}"/>
+
   <label for="input-address">Address</label>
   <input type="text" name="address" id="address" value="{{ home.address }}"/>
 

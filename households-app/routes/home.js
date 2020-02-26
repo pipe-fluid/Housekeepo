@@ -3,7 +3,8 @@
 const { Router } = require('express');
 const routeGuard = require('./../middleware/route-guard');
 const router = new Router();
-const Home = require('../models/home');
+const Home = require('../models/Home');
+const Task = require('../models/Task');
 
 router.get('/create', (req, res) => {
   res.render('./home/home-create');
@@ -11,17 +12,18 @@ router.get('/create', (req, res) => {
 
 router.post('/create', routeGuard(true), (req, res, next) => {
   const userId = req.user._id;
-  console.log(req.body);
-  const { address, zipcode, phone } = req.body;
+  //console.log(req.body);
+  const { address, zipcode, phone, name } = req.body;
   Home.create({
-    member: userId,
+    name,
+    members: [userId],
     address,
     zipcode,
     phone
   })
     .then(home => {
       console.log('should redirect');
-      res.redirect(`/dashboard/${home._id}`);
+      res.redirect(`/dashboard`);
     })
     .catch(error => {
       next(error);
@@ -83,9 +85,14 @@ router.post('/:homeId/delete', routeGuard(true), (req, res, next) => {
 
 router.get('/:homeId', routeGuard(true), (req, res, next) => {
   const homeId = req.params.homeId;
+  let home;
   Home.findById(homeId)
-    .then(home => {
-      res.render('./home/home-single', { home });
+    .then(homeInfo => {
+      home = homeInfo;
+      return Task.find({ home: homeId });
+    })
+    .then(tasks => {
+      res.render('./home/home-single', { home, tasks });
     })
     .catch(error => next(error));
 });

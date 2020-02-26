@@ -11,7 +11,7 @@ router.get('/github', passport.authenticate('github'));
 router.get(
   '/github-callback',
   passport.authenticate('github', {
-    successRedirect: '/',
+    successRedirect: '/dashboard',
     failureRedirect: '/authentication/sign-in'
   })
 );
@@ -23,7 +23,7 @@ router.get('/sign-up', (req, res, next) => {
 router.post(
   '/sign-up',
   passport.authenticate('local-sign-up', {
-    successRedirect: '/',
+    successRedirect: '/dashboard',
     failureRedirect: '/authentication/sign-up'
   })
 );
@@ -35,7 +35,7 @@ router.get('/sign-in', (req, res, next) => {
 router.post(
   '/sign-in',
   passport.authenticate('local-sign-in', {
-    successRedirect: '/',
+    successRedirect: '/dashboard',
     failureRedirect: '/authentication/sign-in'
   })
 );

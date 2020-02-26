@@ -1,5 +1,5 @@
 LINK SCHEMA:
-homepage
+homepage (OK)
 [display general information about the website, explain how the product works]
 {
 create user -> redirects to dashboard
