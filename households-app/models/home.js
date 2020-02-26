@@ -19,16 +19,16 @@ const homeSchema = new mongoose.Schema({
   },
   phone: {
     type: Number
-  },
-  pictures: [
-    {
-      type: String
-    }
-  ],
-  geolocation: {
-    lat: Number,
-    lng: Number
   }
+  // pictures: [
+  //   {
+  //     type: String
+  //   }
+  // ]
+  // geolocation: {
+  //   lat: Number,
+  //   lng: Number
+  // }
 });
 
 module.exports = mongoose.model('Home', homeSchema);

@@ -31,8 +31,6 @@ router.post('/create', routeGuard(true), (req, res, next) => {
       res.redirect(`/tasks/${task._id}`);
     })
     .catch(error => {
-      console.log(error);
-
       next(error);
     });
 });
@@ -51,7 +49,6 @@ router.post('/:taskId/comment', routeGuard(true), (req, res, next) => {
     task: taskId
   })
     .then(task => {
-      console.log('i am running', task);
       res.redirect(`/tasks/${taskId}`);
     })
     .catch(error => {

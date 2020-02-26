@@ -15,7 +15,6 @@ const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js')
 const passportConfigure = require('./passport-configuration.js');
 const indexRouter = require('./routes/index');
 const taskRouter = require('./routes/tasks');
-const householdRouter = require('./routes/households');
 const userRouter = require('./routes/users');
 const homeRouter = require('./routes/home');
 
@@ -64,7 +63,6 @@ app.use(bindUserToViewLocals);
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/tasks', taskRouter);
-app.use('/households', householdRouter);
 app.use('/users', userRouter);
 app.use('/home', homeRouter);
 
