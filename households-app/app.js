@@ -17,6 +17,7 @@ const indexRouter = require('./routes/index');
 const taskRouter = require('./routes/tasks');
 const householdRouter = require('./routes/households');
 const userRouter = require('./routes/users');
+const homeRouter = require('./routes/home');
 
 const authenticationRouter = require('./routes/authentication');
 
@@ -45,14 +46,14 @@ app.use(
     resave: true,
     saveUninitialized: false,
     cookie: {
-      maxAge: 60 * 60 * 24 * 15,
+      maxAge: 100 * 60 * 60 * 24 * 15,
       sameSite: 'lax',
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production'
     },
     store: new (connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
-      ttl: 60 * 60 * 24
+      ttl: 100 * 60 * 60 * 24
     })
   })
 );
@@ -65,6 +66,7 @@ app.use('/authentication', authenticationRouter);
 app.use('/tasks', taskRouter);
 app.use('/households', householdRouter);
 app.use('/users', userRouter);
+app.use('/home', homeRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

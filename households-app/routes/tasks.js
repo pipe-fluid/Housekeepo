@@ -1,7 +1,6 @@
 'use strict';
 
 const { Router } = require('express');
-const passport = require('passport');
 const routeGuard = require('./../middleware/route-guard');
 const router = new Router();
 const Task = require('./../models/task');
@@ -32,6 +31,8 @@ router.post('/create', routeGuard(true), (req, res, next) => {
       res.redirect(`/tasks/${task._id}`);
     })
     .catch(error => {
+      console.log(error);
+
       next(error);
     });
 });
@@ -42,17 +43,19 @@ router.get('/:taskId/comment', routeGuard(true), (req, res, next) => {
 
 router.post('/:taskId/comment', routeGuard(true), (req, res, next) => {
   const userId = req.user._id;
-  const { comment } = req.body;
+  const { content } = req.body;
   const { taskId } = req.params;
   Comment.create({
     author: userId,
-    comment,
+    content,
     task: taskId
   })
     .then(task => {
-      res.redirect(`/tasks/${task._id}`);
+      console.log('i am running', task);
+      res.redirect(`/tasks/${taskId}`);
     })
     .catch(error => {
+      console.log(error);
       next(error);
     });
 });
@@ -71,6 +74,8 @@ router.get('/:taskId/edit', (req, res, next) => {
       }
     })
     .catch(error => {
+      console.log(error);
+
       next(error);
     });
 });
@@ -94,6 +99,8 @@ router.post('/:taskId/edit', routeGuard(true), (req, res, next) => {
       res.redirect(`/tasks/${taskId}`);
     })
     .catch(error => {
+      console.log(error);
+
       next(error);
     });
 });
@@ -105,6 +112,8 @@ router.post('/:taskId/delete', routeGuard(true), (req, res, next) => {
       res.redirect('/tasks');
     })
     .catch(error => {
+      console.log(error);
+
       next(error);
     });
 });
@@ -125,6 +134,8 @@ router.get('/:taskId', (req, res, next) => {
       }
     })
     .catch(error => {
+      console.log(error);
+
       next(error);
     });
 });
