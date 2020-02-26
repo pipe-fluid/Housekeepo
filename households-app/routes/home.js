@@ -50,13 +50,14 @@ router.get('/:homeId/edit', (req, res, next) => {
 
 router.post('/:homeId/edit', routeGuard(true), (req, res, next) => {
   const { homeId } = req.params;
-  const { address, zipcode, phone } = req.body;
+  const { address, zipcode, phone, name } = req.body;
 
   Home.findOneAndUpdate(
     {
       _id: homeId
     },
     {
+      name,
       address,
       zipcode,
       phone
@@ -87,11 +88,13 @@ router.get('/:homeId', routeGuard(true), (req, res, next) => {
   const homeId = req.params.homeId;
   let home;
   Home.findById(homeId)
+    .populate('members')
     .then(homeInfo => {
       home = homeInfo;
       return Task.find({ home: homeId });
     })
     .then(tasks => {
+      console.log(home);
       res.render('./home/home-single', { home, tasks });
     })
     .catch(error => next(error));

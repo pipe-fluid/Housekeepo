@@ -1,9 +1,9 @@
-<p>Its peanut butter jelly time</p>
+i<p>Its peanut butter jelly time</p>
 
 <a href="/home/create">Home creation</a>
 
 {{#each homes}}
-<h3>{{name}}</h3>
-<a href="/home/{{_id}}">View Home details</a>
+<a href="/home/{{_id}}"><h3>{{name}}</h3></a>
 <a href="/home/{{_id}}/edit">Delete or edit information about your home</a>
+
 {{/each}}

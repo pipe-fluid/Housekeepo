@@ -4,8 +4,18 @@ Here we should display home info.
 <a href="/home/{{home._id}}/edit">Delete or edit information about your home</a>
 <a href="/tasks/{{home._id}}/create">Create a Task for your home</a>
 
+{{home.name}}
+{{#each home.members}}
+{{name}}
+{{/each}}
+{{home.address}}
+{{home.zipcode}}
+{{home.phone}}
+
 {{#each tasks}}
-<h4>{{title}}</h4>
-<p>Urgency: {{urgency}}</p>
-<p>price: {{price.amount}} {{price.currency}}</p>
+<a href="/tasks/{{_id}}"><h4>
+  {{title}}</h4>
+  <p>Urgency: {{urgency}}</p>
+  <p>price: {{price.amount}} {{price.currency}}</p>
+</a>
 {{/each}}

@@ -30,7 +30,7 @@ router.post('/:homeId/create', routeGuard(true), (req, res, next) => {
     home: homeId
   })
     .then(task => {
-      res.redirect(`/tasks/${task._id}`);
+      res.redirect(`/home/${homeId}`);
     })
     .catch(error => {
       next(error);

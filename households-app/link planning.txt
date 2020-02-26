@@ -1,23 +1,11 @@
 LINK SCHEMA:
-homepage (OK)
-[display general information about the website, explain how the product works]
-{
-create user -> redirects to dashboard
-log in -> redirects to dashboard
-}
-
-dashboard 
-[user central, display information about his homes and tasks]
-{
-create home -> redirects to home creation -> back to dashboard
-home single view -> redirects to home single view
-}
 
 home single view
 [dislpay home info, display list of members, display list of tasks]
 {
 edit home -> redirects to home edit -> back to home single view
 create task -> redirects to task create -> back to home single view
+~
 single task -> redirects to single task view
 every task -> redirects to tasks (display all home's tasks)
 invite members -> redirect to home invite
