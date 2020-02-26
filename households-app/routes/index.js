@@ -5,7 +5,7 @@ const router = new Router();
 const routeGuard = require('./../middleware/route-guard');
 
 router.get('/', (req, res) => {
-  res.render('index', { title: 'Hello World!' });
+  res.render('index', { title: 'Housekeepo!' });
   console.log('i am logged in', req.session);
 });
 

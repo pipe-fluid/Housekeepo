@@ -19,6 +19,7 @@ home single view
 edit home -> redirects to home edit -> back to home single view
 create task -> redirects to task create -> back to home single view
 single task -> redirects to single task view
+every task -> redirects to tasks (display all home's tasks)
 invite members -> redirect to home invite
 }
 
