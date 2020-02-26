@@ -10,22 +10,24 @@ router.get('/', (req, res, next) => {
   res.render('task/tasks', { title: 'Tasks Page' });
 });
 
-router.get('/create', (req, res, next) => {
-  res.render('./task/task-create');
+router.get('/:homeId/create', (req, res, next) => {
+  const homeId = req.params.homeId;
+  res.render('./task/task-create', { homeId: homeId });
 });
 
-router.post('/create', routeGuard(true), (req, res, next) => {
+router.post('/:homeId/create', routeGuard(true), (req, res, next) => {
+  console.log('im posting');
+  const homeId = req.params.homeId;
+  console.log(homeId);
   const userId = req.user._id;
   const { title, urgency, deadline, currency, amount } = req.body;
-  const { householdId, houseId } = req.params;
   Task.create({
     creator: userId,
     title,
     urgency,
     deadline,
     price: { currency, amount },
-    home: houseId,
-    household: householdId
+    home: homeId
   })
     .then(task => {
       res.redirect(`/tasks/${task._id}`);
@@ -36,7 +38,23 @@ router.post('/create', routeGuard(true), (req, res, next) => {
 });
 
 router.get('/:taskId/comment', routeGuard(true), (req, res, next) => {
-  res.render('task/task-comment');
+  const { taskId } = req.params;
+
+  Task.findOne({
+    _id: taskId
+  })
+    .then(task => {
+      if (task) {
+        res.render('task/task-comment', { task });
+      } else {
+        next(new Error('NOT_FOUND'));
+      }
+    })
+    .catch(error => {
+      console.log(error);
+
+      next(error);
+    });
 });
 
 router.post('/:taskId/comment', routeGuard(true), (req, res, next) => {

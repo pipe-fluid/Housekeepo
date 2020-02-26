@@ -81,8 +81,13 @@ router.post('/:homeId/delete', routeGuard(true), (req, res, next) => {
     });
 });
 
-router.get('/:homeId', routeGuard(true), (req, res) => {
-  res.render('./home/home-single');
+router.get('/:homeId', routeGuard(true), (req, res, next) => {
+  const homeId = req.params.homeId;
+  Home.findById(homeId)
+    .then(home => {
+      res.render('./home/home-single', { home });
+    })
+    .catch(error => next(error));
 });
 
 module.exports = router;
