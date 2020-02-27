@@ -1,16 +1,20 @@
-<form action="/home/create">
-    <input type="submit" value="Create a home view!" />
-</form>
+<<<<<<< HEAD
+<div class = "d-flex flex-column justify-content-center align-items-center">
+<h1>Welcome {{username}}</h1>
 
-<ul>
-  {{#each homes}}
-    <li><a href="/home/{{_id}}"><h3>{{name}}</h3></a></li>
-    <form action="/home/{{_id}}/edit">
-      <input type="submit" value="Edit home information" />
-    </form>
-  {{/each}}
-</ul>
+<button type="button" class="btn btn-dark rounded-lg">  
+<a class = "btna" href="/home/create">Home creation</a>
+</button>
 
 
-{{!-- <a href="/home/{{_id}}/edit">Delete or edit information about your home</a>
-<a href="/home/create">Home creation</a> --}}
+{{#each homes}}
+<div class="card d-flex flex-column justify-content-center align-items-center rounded-lg" style="width: 50%">
+  <div class="card-body d-flex flex-column justify-content-center align-items-center">
+    <h5 class="card-title">{{name}}</h5>
+    <a href="/home/{{_id}}"><h3></h3>More Info</a>
+    <a href="/home/{{_id}}/edit">Delete or edit</a>
+  </div>
+</div>
+
+{{/each}}
+</div>
