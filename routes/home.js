@@ -68,22 +68,22 @@ router.post('/create', routeGuard(true), uploader.single('pictures'), (req, res,
       });
   }
 
-  console.log(url);
-  Home.create({
-    pictures: url,
-    name,
-    members: [userId],
-    address,
-    zipcode,
-    phone
-  })
-    .then(home => {
-      console.log('should redirect');
-      res.redirect(`/dashboard`);
-    })
-    .catch(error => {
-      next(error);
-    });
+  // console.log(url);
+  // Home.create({
+  //   pictures: url,
+  //   name,
+  //   members: [userId],
+  //   address,
+  //   zipcode,
+  //   phone
+  // })
+  //   .then(home => {
+  //     console.log('should redirect');
+  //     res.redirect(`/dashboard`);
+  //   })
+  //   .catch(error => {
+  //     next(error);
+  //   });
 });
 
 router.get('/:homeId/edit', (req, res, next) => {
