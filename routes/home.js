@@ -71,27 +71,43 @@ router.get('/:homeId/edit', (req, res, next) => {
     });
 });
 
-router.post('/:homeId/edit', routeGuard(true), (req, res, next) => {
+router.post('/:homeId/edit', routeGuard(true), uploader.single('pictures'), (req, res, next) => {
   const { homeId } = req.params;
-  const { address, zipcode, phone, name, pictures } = req.body;
+  const { address, zipcode, phone, name } = req.body;
+  let url;
 
-  Home.findOneAndUpdate(
-    {
-      _id: homeId
-    },
-    {
-      name,
-      address,
-      pictures,
-      zipcode,
-      phone
-    }
-  )
-    .then(() => {
-      res.redirect(`/home/${homeId}`);
+  Home.findById({
+    _id: homeId
+  })
+    .then(home => {
+      let pictures = home.pictures;
+      console.log('home', pictures);
+      if (req.file) {
+        url = req.file.url;
+      } else url = pictures;
     })
-    .catch(error => {
-      next(error);
+    .then(() => {
+      console.log('URL', url);
+
+      Home.findOneAndUpdate(
+        {
+          _id: homeId
+        },
+        {
+          name,
+          address,
+          pictures: url,
+          zipcode,
+          phone
+        }
+      )
+        .then(result => {
+          console.log(result);
+          res.redirect(`/home/${homeId}`);
+        })
+        .catch(error => {
+          next(error);
+        });
     });
 });
 

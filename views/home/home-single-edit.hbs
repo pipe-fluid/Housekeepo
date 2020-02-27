@@ -1,6 +1,6 @@
 <h1>Edit home info</h1>
 
-<form method="POST" action="/home/{{home._id}}/edit">
+<form method="POST" action="/home/{{home._id}}/edit" enctype="multipart/form-data">
 
   <label for="name">Name</label>
   <input type="text" name="name" id="name" value="{{home.name}}"/>
@@ -15,7 +15,7 @@
   <input type="number" name="phone" id="phone" value="{{ home.phone }}"/>
 
   <label for="pictures">Picture</label>
-  <input type="file" accept="image/*" id="pictures" name="pictures" value="{{ home.pictures }}" />
+  <input type="file" accept="image/*" value={{ home.pictures }} id="pictures" name="pictures" />
 
   <button>Edit Home</button>
 </form>
