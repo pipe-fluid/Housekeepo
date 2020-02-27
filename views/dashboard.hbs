@@ -1,9 +1,16 @@
-<p>Its peanut butter jelly time</p>
+<form action="/home/create">
+    <input type="submit" value="Create a home view!" />
+</form>
 
-<a href="/home/create">Home creation</a>
+<ul>
+  {{#each homes}}
+    <li><a href="/home/{{_id}}"><h3>{{name}}</h3></a></li>
+    <form action="/home/{{_id}}/edit">
+      <input type="submit" value="Edit home information" />
+    </form>
+  {{/each}}
+</ul>
 
-{{#each homes}}
-<a href="/home/{{_id}}"><h3>{{name}}</h3></a>
-<a href="/home/{{_id}}/edit">Delete or edit information about your home</a>
 
-{{/each}}
+{{!-- <a href="/home/{{_id}}/edit">Delete or edit information about your home</a>
+<a href="/home/create">Home creation</a> --}}
