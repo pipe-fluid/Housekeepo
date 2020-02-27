@@ -9,7 +9,9 @@
 {{#each homes}}
 <div class="card d-flex flex-column justify-content-center align-items-center rounded-lg" style="width: 50%">
   <div class="card-body d-flex flex-column justify-content-center align-items-center">
-    <img src="{{pictures}}", alt="{{name}}">
+    {{#if pictures}}
+      <img src="{{pictures}}", alt="{{name}}">
+    {{/if}}
     <h5 class="card-title">{{name}}</h5>
     <a href="/home/{{_id}}"><h3></h3>More Info</a>
     <a href="/home/{{_id}}/edit">Delete or edit</a>
