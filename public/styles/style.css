@@ -5,9 +5,18 @@ body {
   max-width: 52em;
   padding: 0 1em;
   margin: 0 auto;
-  font-family: sans-serif;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Nanum Gothic';
   line-height: 2; }
+
+.card {
+  border: none; }
+
+.btn {
+  background-color: black;
+  padding: 1em;
+  border-radius: 0;
+  margin-bottom: 1em;
+  color: white; }
 
 h1 {
   text-align: center; }
@@ -16,22 +25,14 @@ a {
   color: inherit;
   text-decoration: none; }
 
-.btna:hover {
-  text-decoration: none;
-  color: white; }
+.btna2:hover {
+  text-decoration: none; }
 
-nav {
-  display: flex; }
-  nav a,
-  nav button {
-    padding: 1em 0;
-    border: 0; }
-    nav a:not(:last-child),
-    nav button:not(:last-child) {
-      margin-right: 1em; }
-    nav a:first-child,
-    nav button:first-child {
-      margin-right: auto; }
+.nav {
+  padding-top: 2em; }
+
+.sobtn {
+  margin-left: 16em; }
 
 h1,
 h2,
@@ -51,11 +52,11 @@ img {
 
 form {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  font-size: 14px; }
 
 input,
 textarea,
-button,
 .btn {
   padding: 1em;
   border: 1px solid rgba(191, 191, 191, 0.5);

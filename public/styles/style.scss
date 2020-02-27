@@ -13,9 +13,20 @@ body {
   max-width: 52em;
   padding: 0 1em;
   margin: 0 auto;
-  font-family: sans-serif;
-  font-family: $font-sans;
+  font-family: 'Nanum Gothic';
   line-height: 2;
+}
+
+.card {
+  border: none;
+}
+
+.btn {
+  background-color: black;
+  padding: 1em;
+  border-radius: 0;
+  margin-bottom: 1em;
+  color: white;
 }
 
 h1 {
@@ -27,24 +38,16 @@ a {
   text-decoration: none;
 }
 
-.btna:hover {
+.btna2:hover {
   text-decoration: none;
-  color: white;
 }
 
-nav {
-  display: flex;
-  a,
-  button {
-    padding: 1em 0;
-    border: 0;
-    &:not(:last-child) {
-      margin-right: 1em;
-    }
-    &:first-child {
-      margin-right: auto;
-    }
-  }
+.nav {
+  padding-top: 2em;
+}
+
+.sobtn {
+  margin-left: 16em;
 }
 
 h1,
@@ -66,11 +69,11 @@ img {
 form {
   display: flex;
   flex-direction: column;
+  font-size: 14px;
 }
 
 input,
 textarea,
-button,
 .btn {
   padding: 1em;
   border: 1px solid $grey;
