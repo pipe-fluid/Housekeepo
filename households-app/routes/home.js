@@ -3,6 +3,8 @@
 const { Router } = require('express');
 const routeGuard = require('./../middleware/route-guard');
 const router = new Router();
+const User = require('../models/User');
+
 const Home = require('../models/Home');
 const Task = require('../models/Task');
 
@@ -107,4 +109,15 @@ router.get('/:homeId', routeGuard(true), (req, res, next) => {
     .catch(error => next(error));
 });
 
+router.post('/invite/:homeId', routeGuard(true), (req, res, next) => {
+  const homeId = req.params.homeId;
+  console.log(req.body, homeId);
+  User.find({ email: req.body.email })
+    .then(user => {
+      Home.findByIdAndUpdate(homeId, { $push: { members: user } }).then(() => {
+        res.redirect('/home/' + homeId);
+      });
+    })
+    .catch(error => next(error));
+});
 module.exports = router;

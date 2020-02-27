@@ -19,3 +19,9 @@ Here we should display home info.
   <p>price: {{price.amount}} {{price.currency}}</p>
 </a>
 {{/each}}
+
+<form action="/home/invite/{{home._id}}" method="post">
+  <label for="email">Invite someone to this house: </label>
+  <input name="email" type="email" placeholder="Email here" />
+  <button class="btn btn-outline-primary" type="submit">Invite!</button>
+</form>
