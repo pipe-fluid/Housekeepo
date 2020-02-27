@@ -1,6 +1,6 @@
 
 <h1>Create a Home</h1>
-<div class = "d-flex flex-column justify-content-center align-items-center"  style = "width: 100%">
+<div class = "d-flex flex-column justify-content-center align-items-center">
 <form style = "width: 50%" method="POST" action="/home/create" enctype="multipart/form-data">
   <label for="name">Name</label>
   <input type="text" name="name" id="name" value=""/>
@@ -11,12 +11,13 @@
   <label for="input-zipcode">Postal Code</label>
   <input type="text" name="zipcode" id="zipcode" placeholder="Your postal code" maxlength="12"/>
 
-  <label for="input-tellphone">Telephone number:</label>
+  <label for="input-tellphone">Telephone number</label>
   <input type="number" name="phone" id="phone"/>
 
   <label for="pictures">Picture</label>
   <input type="file" accept="image/*" id="pictures" name="pictures" />
 
-  <button>Create Home</button>
+  <button class="btn btn-dark rounded-lg"> Create Home </button>
+
 </form>
 </div>

@@ -33,57 +33,31 @@ router.get('/create', (req, res) => {
 
 router.post('/create', routeGuard(true), uploader.single('pictures'), (req, res, next) => {
   const userId = req.user._id;
-  const url = req.file;
-  const { address, zipcode, phone, name } = req.body;
-  if (req.file) {
-    Home.create({
-      pictures: url,
-      name,
-      members: [userId],
-      address,
-      zipcode,
-      phone
-    })
-      .then(home => {
-        console.log('should redirect');
-        res.redirect(`/dashboard`);
-      })
-      .catch(error => {
-        next(error);
-      });
-  } else {
-    Home.create({
-      name,
-      members: [userId],
-      address,
-      zipcode,
-      phone
-    })
-      .then(home => {
-        console.log('should redirect');
-        res.redirect(`/dashboard`);
-      })
-      .catch(error => {
-        next(error);
-      });
-  }
 
-  // console.log(url);
-  // Home.create({
-  //   pictures: url,
-  //   name,
-  //   members: [userId],
-  //   address,
-  //   zipcode,
-  //   phone
-  // })
-  //   .then(home => {
-  //     console.log('should redirect');
-  //     res.redirect(`/dashboard`);
-  //   })
-  //   .catch(error => {
-  //     next(error);
-  //   });
+  const url = req.file ? req.file.url : undefined;
+  //This would be another synthax for the ternary above
+  // let url;
+  // if (req.file) {
+  //   url = req.file.url;
+  // }
+
+  const { address, zipcode, phone, name } = req.body;
+  console.log('REQ>FILE', req.file);
+  Home.create({
+    pictures: url,
+    name,
+    members: [userId],
+    address,
+    zipcode,
+    phone
+  })
+    .then(home => {
+      console.log('should redirect');
+      res.redirect(`/dashboard`);
+    })
+    .catch(error => {
+      next(error);
+    });
 });
 
 router.get('/:homeId/edit', (req, res, next) => {
