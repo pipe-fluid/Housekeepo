@@ -11,6 +11,10 @@ body {
 .card {
   border: none; }
 
+.login {
+  background-color: #e9f0fd;
+  color: black; }
+
 .btn {
   background-color: black;
   padding: 1em;
@@ -77,9 +81,10 @@ textarea {
   transition: transform 0.25s ease-in-out; }
 
 .card:hover .card-body {
-  opacity: 0.6; }
+  opacity: 0.95;
+  transform: scale(1.02); }
 
 .card:hover .card-img-top {
-  transform: scale(1.05); }
+  transform: scale(1.01); }
 
 /*# sourceMappingURL=style.css.map */

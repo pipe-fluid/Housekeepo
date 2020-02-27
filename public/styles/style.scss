@@ -21,6 +21,10 @@ body {
   border: none;
 }
 
+.login {
+  background-color: rgb(233, 240, 253);
+  color: black;
+}
 .btn {
   background-color: black;
   padding: 1em;
@@ -98,9 +102,10 @@ textarea {
 }
 
 .card:hover .card-body {
-  opacity: 0.6;
+  opacity: 0.95;
+  transform: scale(1.02);
 }
 
 .card:hover .card-img-top {
-  transform: scale(1.05);
+  transform: scale(1.01);
 }

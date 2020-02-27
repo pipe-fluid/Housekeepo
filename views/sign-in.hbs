@@ -2,11 +2,11 @@
   <form style="width: 50%" action="/authentication/sign-in" method="POST">
   <p></p>
     <label class="d-flex flex-column justify-content-center align-items-center" for="input-email">Email</label>
-    <input type="email" id="input-email" name="email" placeholder="Your Email" />
+    <input class="login" type="email" id="input-email" name="email" placeholder="Your Email" />
     <label class="d-flex flex-column justify-content-center align-items-center" for="input-password">Password</label>
-    <input type="password" name="password" id="input-password" placeholder="A Strong Password" />
+    <input class="login" type="password" name="password" id="input-password" placeholder="A Strong Password" />
     <button class="btn btn-dark rounded-lg">Sign In</button>
   </form>
       <label>OR</label>
-  <a style="width:50%" class="btn btn-dark rounded-lg" href="/authentication/github">Sign In with GitHub</a>
+  <a style="width:50%" class="btn btn-dark rounded-lg" href="/authentication/github"><ion-icon name="logo-github"></ion-icon> Sign In with GitHub</a>
 </div>

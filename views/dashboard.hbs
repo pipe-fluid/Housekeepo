@@ -3,19 +3,21 @@
 
 <button type="button" class="btn btn-dark rounded-lg">
   <ion-icon name="add-circle-outline" size="medium"></ion-icon>  
-  <a class = "btna" href="/home/create">Add Home</a>
+  <a class = "a btna2" href="/home/create">Add Home</a>
 </button>
 
 
 {{#each homes}}
 <div class="card d-flex flex-column justify-content-center align-items-center rounded-lg" style="width: 50%">
   <div class="card-body d-flex flex-column justify-content-center align-items-center">
+     <h6 class="card-title"><ion-icon name="pin-outline"></ion-icon>{{name}}</h6>
+
     {{#if pictures}}
       <img src="{{pictures}}", alt="{{name}}">
     {{/if}}
-    <h5 class="card-title">{{name}}</h5>
-    <a class="btna" href="/home/{{_id}}"><ion-icon size="large" href="/home/{{_id}}" name="reader-outline" ></ion-icon></a>
-    <a class="btna" href="/home/{{_id}}/edit">Edit/Delete</a>
+   
+    <a class="btna2" style="padding-top:1em" href="/home/{{_id}}"><ion-icon size="large" href="/home/{{_id}}" name="search-outline" ></ion-icon></a>
+    <a class="btna2" href="/home/{{_id}}/edit">Edit/Delete</a>
   </div>
 </div>
 
