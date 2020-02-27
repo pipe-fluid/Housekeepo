@@ -3,10 +3,10 @@
 const { Router } = require('express');
 const routeGuard = require('./../middleware/route-guard');
 const router = new Router();
-const User = require('../models/User');
+const User = require('../models/user');
 
-const Home = require('../models/Home');
-const Task = require('../models/Task');
+const Home = require('../models/home');
+const Task = require('../models/task');
 
 router.get('/create', (req, res) => {
   res.render('./home/home-create');

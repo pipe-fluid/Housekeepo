@@ -3,8 +3,8 @@
 const { Router } = require('express');
 const router = new Router();
 const routeGuard = require('./../middleware/route-guard');
-const Task = require('../models/Task');
-const Home = require('../models/Home');
+const Task = require('../models/task');
+const Home = require('../models/home');
 
 router.get('/', (req, res) => {
   res.render('index', { title: 'Housekeepo!' });
