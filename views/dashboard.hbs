@@ -1,9 +1,19 @@
-<p>Its peanut butter jelly time</p>
+<div class = "d-flex flex-column justify-content-center align-items-center">
+<h1>Welcome {{username}}</h1>
 
-<a href="/home/create">Home creation</a>
+<button type="button" class="btn btn-dark rounded-lg">  
+<a class = "btna" href="/home/create">Home creation</a>
+</button>
+
 
 {{#each homes}}
-<a href="/home/{{_id}}"><h3>{{name}}</h3></a>
-<a href="/home/{{_id}}/edit">Delete or edit information about your home</a>
+<div class="card d-flex flex-column justify-content-center align-items-center rounded-lg" style="width: 50%">
+  <div class="card-body d-flex flex-column justify-content-center align-items-center">
+    <h5 class="card-title">{{name}}</h5>
+    <a href="/home/{{_id}}"><h3></h3>More Info</a>
+    <a href="/home/{{_id}}/edit">Delete or edit</a>
+  </div>
+</div>
 
 {{/each}}
+</div>
