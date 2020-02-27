@@ -1,6 +1,6 @@
 <h1>Create a Home View</h1>
 
-<form method="POST" action="/home/create">
+<form method="POST" action="/home/create" enctype="multipart/form-data">
   <label for="name">Name</label>
   <input type="text" name="name" id="name" value=""/>
   
@@ -12,6 +12,9 @@
 
   <label for="input-tellphone">Telephone number:</label>
   <input type="number" name="phone" id="phone"/>
+
+  <label for="pictures">Picture</label>
+  <input type="file" accept="image/*" id="pictures" name="pictures" />
 
   <button>Create Home</button>
 </form>

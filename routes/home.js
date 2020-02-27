@@ -8,15 +8,36 @@ const User = require('../models/user');
 const Home = require('../models/home');
 const Task = require('../models/task');
 
+const multer = require('multer');
+const cloudinary = require('cloudinary');
+const multerStorageCloudinary = require('multer-storage-cloudinary');
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_API_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  resource_type: 'raw'
+});
+
+const storage = multerStorageCloudinary({
+  cloudinary,
+  folder: 'Housekeepo Houses',
+  resource_type: 'raw'
+});
+
+const uploader = multer({ storage });
+
 router.get('/create', (req, res) => {
   res.render('./home/home-create');
 });
 
-router.post('/create', routeGuard(true), (req, res, next) => {
+router.post('/create', routeGuard(true), uploader.single('pictures'), (req, res, next) => {
   const userId = req.user._id;
-  //console.log(req.body);
+  const { url } = req.file;
+  console.log(url);
   const { address, zipcode, phone, name } = req.body;
   Home.create({
+    pictures: url,
     name,
     members: [userId],
     address,

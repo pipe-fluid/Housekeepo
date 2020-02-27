@@ -9,6 +9,9 @@
 <h4><strong>Address: </strong>{{home.address}}</h4>
 <h4><strong>Zipcode: </strong>{{home.zipcode}}</h4>
 <h4><strong>Telephone: </strong>{{home.phone}}</h4>
+<figure>
+  <img src="{{home.pictures}}" alt="{{home.name}}">
+</figure>
 
 <form action="/home/{{home._id}}/edit">
     <input type="submit" value="Edit home info" />
