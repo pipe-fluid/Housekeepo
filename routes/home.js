@@ -33,9 +33,42 @@ router.get('/create', (req, res) => {
 
 router.post('/create', routeGuard(true), uploader.single('pictures'), (req, res, next) => {
   const userId = req.user._id;
-  const { url } = req.file;
-  console.log(url);
+  const url = req.file;
   const { address, zipcode, phone, name } = req.body;
+  if (req.file) {
+    Home.create({
+      pictures: url,
+      name,
+      members: [userId],
+      address,
+      zipcode,
+      phone
+    })
+      .then(home => {
+        console.log('should redirect');
+        res.redirect(`/dashboard`);
+      })
+      .catch(error => {
+        next(error);
+      });
+  } else {
+    Home.create({
+      name,
+      members: [userId],
+      address,
+      zipcode,
+      phone
+    })
+      .then(home => {
+        console.log('should redirect');
+        res.redirect(`/dashboard`);
+      })
+      .catch(error => {
+        next(error);
+      });
+  }
+
+  console.log(url);
   Home.create({
     pictures: url,
     name,
