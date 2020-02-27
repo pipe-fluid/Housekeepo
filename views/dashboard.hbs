@@ -1,8 +1,9 @@
 <div class = "d-flex flex-column justify-content-center align-items-center">
 <h1>Welcome {{username}}</h1>
 
-<button type="button" class="btn btn-dark rounded-lg">  
-<a class = "btna" href="/home/create">Home creation</a>
+<button type="button" class="btn btn-dark rounded-lg">
+  <ion-icon name="add-circle-outline" size="medium"></ion-icon>  
+  <a class = "btna" href="/home/create">Add Home</a>
 </button>
 
 
@@ -13,8 +14,8 @@
       <img src="{{pictures}}", alt="{{name}}">
     {{/if}}
     <h5 class="card-title">{{name}}</h5>
-    <a href="/home/{{_id}}"><h3></h3>More Info</a>
-    <a href="/home/{{_id}}/edit">Delete or edit</a>
+    <a class="btna" href="/home/{{_id}}"><ion-icon size="large" href="/home/{{_id}}" name="reader-outline" ></ion-icon></a>
+    <a class="btna" href="/home/{{_id}}/edit">Edit/Delete</a>
   </div>
 </div>
 

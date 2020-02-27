@@ -13,7 +13,7 @@ body {
   max-width: 52em;
   padding: 0 1em;
   margin: 0 auto;
-  font-family: 'Nanum Gothic';
+  font-family: 'Nanum Gothic'; //font is working
   line-height: 2;
 }
 
@@ -87,4 +87,20 @@ textarea,
 textarea {
   min-height: 8em;
   resize: vertical;
+}
+
+.card-body {
+  transition: opacity 0.25s ease-in-out;
+}
+
+.card-img-top {
+  transition: transform 0.25s ease-in-out;
+}
+
+.card:hover .card-body {
+  opacity: 0.6;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.05);
 }

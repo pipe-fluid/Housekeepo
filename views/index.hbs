@@ -1,19 +1,17 @@
-<h1>{{title}}</h1>
-<h3>Welcome to {{title}}</h3>
+<h1>Welcome to {{title}}</h1>
 
-<h5>Housekeepo is the app you are looking for to organize your home.<br>
-With Housekeepo you and your housemates can share a view of your house, tasks, create comments and much more.<br>
+<br>
+<h5>Your go-to task manager for your house </h5><br>
+</p>With Housekeepo you and your housemates can share a view of your house, tasks, create comments and much more.<br>
 Sign up now and make your home tidy as never before!
+<p>
 </h5>
-
-{{!-- <p><a href="/tasks">Go to tasks page</a>
-<a href="/home/create">Home creation</a></p> --}}
 
 {{#if user}}
 
 {{else}}
   </p>
-  <a href="/authentication/sign-up">
-  <button>Register Now!</button></a>
+  <a class="d-flex flex-column justify-content-center align-items-center" href="/authentication/sign-up">
+  <button class="btn btn-dark rounded-lg "><ion-icon name="log-in-outline"></ion-icon> Sign Up Now!</button></a>
 {{/if}}
 

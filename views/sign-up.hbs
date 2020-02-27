@@ -1,10 +1,14 @@
-<form action="/authentication/sign-up" method="POST">
-  <label for="input-name">Name</label>
-  <input type="text" id="input-name" name="name" placeholder="Your Name" />
-  <label for="input-email">Email</label>
-  <input type="email" id="input-email" name="email" placeholder="Your Email" />
-  <label for="input-password">Password</label>
-  <input type="password" name="password" id="input-password" placeholder="A Strong Password" />
-  <button>Sign Up</button>
-</form>
-<a href="/authentication/github">Sign Up with GitHub</a>
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <form style="width: 50%" action="/authentication/sign-up" method="POST">
+  <p></p>
+    <label class="d-flex flex-column justify-content-center align-items-center" for="input-name">Name</label>
+    <input type="text" id="input-name" name="name" placeholder="Your Name" />
+    <label class="d-flex flex-column justify-content-center align-items-center" for="input-email">Email</label>
+    <input type="email" id="input-email" name="email" placeholder="Your Email" />
+    <label class="d-flex flex-column justify-content-center align-items-center" for="input-password">Password</label>
+    <input type="password" name="password" id="input-password" placeholder="A Strong Password" />
+    <button class="btn btn-dark rounded-lg">Sign Up</button>
+  </form>
+    <label>OR</label> 
+  <a style="width:50%" class="btn btn-dark rounded-lg" href="/authentication/github">Sign Up with GitHub</a>
+</div>
