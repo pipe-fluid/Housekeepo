@@ -1,10 +1,18 @@
-<p>Single task view page!</p>
 <h1>{{task.title}}</h1>
 
 {{#each comments}}
-  {{author.name}}
-  {{content}}
+  <strong>{{author.name}}:</strong><br>
+  {{content}}<br>
 {{/each}}
 
-<a href="/tasks/{{task._id}}/edit">Edit or delete the task</a>
-<a href="/tasks/{{task._id}}/comment">Make a comment</a>
+<form action="/tasks/{{task._id}}/edit">
+    <input type="submit" value="Edit task information" />
+</form>
+
+<form action="/tasks/{{task._id}}/comment">
+    <input type="submit" value="Add a comment" />
+</form>
+
+
+{{!-- <a href="/tasks/{{task._id}}/edit">Edit or delete the task</a>
+<a href="/tasks/{{task._id}}/comment">Make a comment</a> --}}
