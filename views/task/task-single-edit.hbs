@@ -1,47 +1,50 @@
 <h1>Edit your task:</h1>
+<div class = "d-flex flex-column justify-content-center align-items-center">
 
-<form method="POST" action="/tasks/{{task._id}}/edit">
-  <label for="input-title">Task Title</label>
-  <input type="text" name="title" id="input-title" maxlength="80" value="{{ task.title }}"/>
+  <form style = "width: 50%" method="POST" action="/tasks/{{task._id}}/edit">
+    <label for="input-title">Task Title</label>
+    <input class="rounded-lg" type="text" name="title" id="input-title" maxlength="80" value="{{ task.title }}"/>
 
-  <label for="input-urgency">How urgent is your task?</label>
-  <select name="urgency">
-    <option value="regular">Regular task</option> 
-    <option value="important" selected>Important task</option>
-    <option value="urgent">Urgent task</option>
-  </select>
+    <label for="input-urgency">How urgent is your task?</label>
+    <select name="urgency">
+      <option value="regular">Regular task</option> 
+      <option value="important" selected>Important task</option>
+      <option value="urgent">Urgent task</option>
+    </select>
 
-  <label for="deadline">Task deadline:</label>
-  <input type="date" id="deadline" name="deadline" value="{{ task.deadline }}">
+    <label for="deadline">Task deadline:</label>
+    <input class="rounded-lg" type="date" id="deadline" name="deadline" value="{{ task.deadline }}">
 
-  {{!-- <label for="input-photos">Pictures</label>
-  <input type="file" name="photos" id="input-photos" accept="image/*" multiple /> --}}
-  
+    {{!-- <label for="input-photos">Pictures</label>
+    <input type="file" name="photos" id="input-photos" accept="image/*" multiple /> --}}
+    
 
-  <label for="input-price">Price:</label>
-  <label for="input-currency"></label>
-  <select name="currency">
-    <option value="EUR" selected>(EUR) Euro</option> 
-    <option value="DOL">(DOL) American Dolar</option>
-    <option value="ARS">(ARS) Argentinian Peso</option>
-    <option value="BRL">(BRL) Brazilian Real</option>
-    <option value="GBP">(GBP) British Pound</option> 
-    <option value="CAD">(CAD) Canadian Dolar</option> 
-    <option value="DKK">(DKK) Danish Krone</option>
-    <option value="MXN">(MXN) Mexican Peso</option>
-    <option value="PLN">(PLN) Polish Złoty</option>
-    <option value="RUB">(RUB) Russian Ruble</option> 
-    <option value="SEK">(SEK) Swedish Krona</option>
-    <option value="CHF">(CHF) Swiss Franc</option> 
-    <option value="TRY">(TRY) Turkish Lira</option>
-    <option value="UAH">(UAH) Ukrainian Hryvnia</option>
-  </select>
-  <label for="input-amount">Amount:</label>
-  <input type="number" name="amount" id="input-title" min="0" value="{{ task.price.amount }}"/>
+    <label for="input-price">Price:</label>
+    <label for="input-currency"></label>
+    <select name="currency">
+      <option value="EUR" selected>(EUR) Euro</option> 
+      <option value="DOL">(DOL) American Dolar</option>
+      <option value="ARS">(ARS) Argentinian Peso</option>
+      <option value="BRL">(BRL) Brazilian Real</option>
+      <option value="GBP">(GBP) British Pound</option> 
+      <option value="CAD">(CAD) Canadian Dolar</option> 
+      <option value="DKK">(DKK) Danish Krone</option>
+      <option value="MXN">(MXN) Mexican Peso</option>
+      <option value="PLN">(PLN) Polish Złoty</option>
+      <option value="RUB">(RUB) Russian Ruble</option> 
+      <option value="SEK">(SEK) Swedish Krona</option>
+      <option value="CHF">(CHF) Swiss Franc</option> 
+      <option value="TRY">(TRY) Turkish Lira</option>
+      <option value="UAH">(UAH) Ukrainian Hryvnia</option>
+    </select>
+    <label for="input-amount">Amount:</label>
+    <input class="rounded-lg" type="number" name="amount" id="input-title" min="0" value="{{ task.price.amount }}"/>
 
-  <button>Edit Task</button>
-</form>
+    <button class="btn btn-outline-primary rounded-lg">Edit Task</button>
+  </form>
 
-<form action="/tasks/{{task._id}}/delete" method="POST" name="delete" id="delete">
-  <button>Delete Task</button>
-</form>
+  <form style = "width: 50%" action="/tasks/{{task._id}}/delete" method="POST" name="delete" id="delete">
+    <button class="btn btn-dark rounded-lg" >Delete Task</button>
+  </form>
+
+</div>

@@ -13,11 +13,13 @@
      <h6 class="card-title"><ion-icon name="navigate-circle-outline"></ion-icon> {{name}}</h6>
 
     {{#if pictures}}
-      <img src="{{pictures}}", alt="{{name}}">
+      <img class="rounded-lg" src="{{pictures}}", alt="{{name}}">
     {{/if}}
-   
-    <a class="btna2" style="padding-top:1em" href="/home/{{_id}}"><ion-icon href="/home/{{_id}}" name="document-text-outline" ></ion-icon></a>
-    <a class="btna2" href="/home/{{_id}}/edit"><ion-icon name="construct-outline"></ion-icon></a>
+    </div>
+   <div = class="d-flex flex-row justify-content-center align-items-center">
+    <a class="btna2" href="/home/{{_id}}"><ion-icon href="/home/{{_id}}" name="document-text-outline" size="large" ></ion-icon></a>
+    <a class="btna2" href="/home/{{_id}}/edit"><ion-icon name="construct-outline" size="large"></ion-icon></a>
+    </div>
   </div>
 </div>
 
