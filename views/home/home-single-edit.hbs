@@ -2,19 +2,19 @@
 
   <div class = "d-flex flex-column justify-content-center align-items-center">
     
-    <form style="width: 50%"="POST" action="/home/{{home._id}}/edit" enctype="multipart/form-data">
+    <form style="width: 50%" method="POST" action="/home/{{home._id}}/edit" enctype="multipart/form-data">
 
       <label for="name">Name</label>
-      <input type="text" name="name" id="name" value="{{home.name}}"/>
+      <input class="rounded lg" type="text" name="name" id="name" value="{{home.name}}"/>
 
       <label for="input-address">Address</label>
-      <input type="text" name="address" id="address" value="{{ home.address }}"/>
+      <input class="rounded lg" type="text" name="address" id="address" value="{{ home.address }}"/>
 
       <label for="input-zipcode">Postal Code</label>
-      <input type="text" name="zipcode" id="zipcode" maxlength="12" value="{{ home.zipcode }}"/>
+      <input class="rounded lg" type="text" name="zipcode" id="zipcode" maxlength="12" value="{{ home.zipcode }}"/>
 
       <label for="input-tellphone">Telephone number</label>
-      <input type="number" name="phone" id="phone" value="{{ home.phone }}"/>
+      <input class="rounded lg" type="number" name="phone" id="phone" value="{{ home.phone }}"/>
 
       <label for="pictures">Picture</label>
       <input class="rounded lg" type="file" accept="image/*" value={{ home.pictures }} id="pictures" name="pictures" />
