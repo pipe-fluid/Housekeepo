@@ -1,26 +1,5 @@
 <h1>{{home.name}}</h1>
-{{!-- 
-<div class="card text-center">
-  <div class="card-header">
-    <ul class="nav nav-tabs card-header-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Home Members</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Home Info</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Home Info</a>
-      </li>
-    </ul>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
- --}}
+
     {{#if home.pictures}}
       <figure class="card-body card d-flex flex-column justify-content-center align-items-center">
         <img class="rounded-lg" style="max-width:400px;max-height:240px"src="{{home.pictures}}" alt="{{home.name}}">
@@ -55,7 +34,7 @@
   <form action="/tasks/{{home._id}}/create">
       <input class="btn-dark btn rounded-lg" type="submit" value="Create a new task" />
   </form>
-  
+
   <form  action="/home/{{home._id}}/edit">
       <input class="btn-outline-primary btn rounded-lg" type="submit" value="Edit home info" />
   </form>
@@ -66,7 +45,7 @@
 <h5><strong>Your task list</strong></h5>
   <ul style="li" class="li" >
     <li style="li" class="li" >{{#each tasks}}
-        <a style="li" class="li" href="/tasks/{{_id}}">
+        <a style="li" class="li btna2" href="/tasks/{{_id}}">
           <h6 style="li" class="li" >{{title}} (Urgency - {{urgency}}{{#if price.amount}} /  Price - {{price.amount}} {{price.currency}}){{else}}) {{/if}}</h6>
         </a>
       {{/each}}</li>
