@@ -1,44 +1,60 @@
 <h1>{{home.name}}</h1>
 
-<h4>Home members:</h4>
-<ul>
-  {{#each home.members}}
-    <li>{{name}}<br></li>
-  {{/each}}
-</ul>
-<h4><strong>Address: </strong>{{home.address}}</h4>
-<h4><strong>Zipcode: </strong>{{home.zipcode}}</h4>
-<h4><strong>Telephone: </strong>{{home.phone}}</h4>
-{{#if home.pictures}}
-  <figure>
-    <img src="{{home.pictures}}" alt="{{home.name}}">
-  </figure>
-{{/if}}
+    {{#if home.pictures}}
+      <figure class="card-body card d-flex flex-column justify-content-center align-items-center">
+        <img style="max-width:400px;max-height:240px"src="{{home.pictures}}" alt="{{home.name}}">
+      </figure>
+    {{/if}}
 
-<form action="/home/{{home._id}}/edit">
-    <input type="submit" value="Edit home info" />
-</form>
+    <article class="mb-5 d-flex flex-column justify-content-center align-items-center" style="margin">
+      <div class="container margin">
+        <div class="row">
+            <div class="col">
+              <h5 class="d-flex flex-column justify-content-center align-items-center"> <strong>Home members</strong></h5>
+              <ul class="d-flex flex-column justify-content-center align-items-center">
+                {{#each home.members}}
+                <li>{{name}}<br></li>
+                {{/each}}
+              </ul>
+            </div>
+            <div class="col">
+              <h5 class="d-flex flex-column justify-content-center align-items-center"><strong>Home info</strong></h5>
+              <ul>
+                <li>Address: {{home.address}}</li>
+                <li>Zipcode: {{home.zipcode}}</li>
+                <li>Telephone: {{home.phone}}</li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </article>
 
-<form action="/tasks/{{home._id}}/create">
-    <input type="submit" value="Create a new task" />
-</form>
+<div class ="d-flex flex-row justify-content-center align-items-center">
+  <form  action="/home/{{home._id}}/edit">
+      <input class="btn-outline-primary btn rounded-lg" type="submit" value="Edit home info" />
+  </form>
 
-<h2>Home tasks:</h2>
-<ul>
-  <li>{{#each tasks}}
-    <a href="/tasks/{{_id}}"><h4>
-    {{title}}</h4>
-    <p>Urgency: {{urgency}}</p>
-    <p>price: {{price.amount}} {{price.currency}}</p>
-    </a>
-  {{/each}}</li>
-</ul>
+  <form action="/tasks/{{home._id}}/create">
+      <input class="btn-dark btn rounded-lg" type="submit" value="Create a new task" />
+  </form>
+</div>
+  
+<div class="nav2 d-flex flex-column justify-content-center align-items-center">
+<h5><strong>Your task list</strong></h5>
+  <ul>
+    <li>{{#each tasks}}
+        <a href="/tasks/{{_id}}">
+          <h6>{{title}} (Urgency - {{urgency}} /  Price - {{price.amount}} {{price.currency}}) </h6>
+        </a>
+      {{/each}}</li>
+    </ul>
+  </div>
 
-<form action="/home/invite/{{home._id}}" method="post">
-  <label for="email">Invite someone to this house: </label>
-  <input name="email" type="email" placeholder="Email here" />
-  <button class="btn btn-outline-primary" type="submit">Invite!</button>
-</form>
-
-{{!-- <a href="/home/{{home._id}}/edit">Edit information about your home</a>
-<a href="/tasks/{{home._id}}/create">Create a Task for your home</a> --}}
+<div class = "nav d-flex flex-column justify-content-center align-items-center rounded-lg">
+  <form style="width: 50%"action="/home/invite/{{home._id}}" method="post">
+    <label for="email">Invite your flatmates & loved ones to join this list :) </label>
+    <input name="email" type="email" placeholder="Email here" />
+    <button class="btn btn-outline-primary rounded-lg" type="submit">Invite!</button>
+  </form>
+</div>

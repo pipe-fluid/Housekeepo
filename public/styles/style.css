@@ -35,6 +35,9 @@ a {
 .nav {
   padding-top: 2em; }
 
+.nav2 {
+  padding-top: 3.5em; }
+
 .sobtn {
   margin-left: 16em; }
 
@@ -81,10 +84,27 @@ textarea {
   transition: transform 0.25s ease-in-out; }
 
 .card:hover .card-body {
-  opacity: 0.95;
+  opacity: 0.9;
   transform: scale(1.02); }
 
 .card:hover .card-img-top {
   transform: scale(1.01); }
+
+.dashboard {
+  justify-content: space-between;
+  align-content: center;
+  height: 4em;
+  padding-left: 2em;
+  padding-right: 2em;
+  border-bottom: 1px solid #b9b9b9; }
+
+.li {
+  list-style-type: none; }
+
+.margin {
+  margin: 0; }
+
+.padding {
+  padding: 1em; }
 
 /*# sourceMappingURL=style.css.map */

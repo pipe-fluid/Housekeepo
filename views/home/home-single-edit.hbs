@@ -17,12 +17,12 @@
       <input type="number" name="phone" id="phone" value="{{ home.phone }}"/>
 
       <label for="pictures">Picture</label>
-      <input type="file" accept="image/*" value={{ home.pictures }} id="pictures" name="pictures" />
+      <input class="rounded lg" type="file" accept="image/*" value={{ home.pictures }} id="pictures" name="pictures" />
 
-      <button class="btn btn-dark rounded-lg">Edit Home</button>
+      <button class="btn-outline-primary btn rounded-lg">Edit Home</button>
     </form>
 
     <form style="width: 50%" action="/home/{{home._id}}/delete" method="POST" name="delete" id="delete">
-      <button class=" btn btn-dark rounded-lg">Delete Home</button>
+      <button class="btn btn-dark rounded-lg">Delete Home</button>
     </form>
   </div>
