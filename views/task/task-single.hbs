@@ -1,8 +1,10 @@
 <h1>{{task.title}}</h1>
 
   {{#each comments}}
+    <small>{{creationDate}}</small><br>
     <strong>{{author.name}}:</strong><br>
     {{content}}<br>
+    <hr>
   {{/each}}
 
   <div class = "d-flex flex-column justify-content-center align-items-center">

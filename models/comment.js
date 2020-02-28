@@ -20,13 +20,13 @@ const commentSchema = new mongoose.Schema(
       maxlength: 200,
       trim: true
     }
+  },
+  {
+    timestamps: {
+      createdAt: 'creationDate',
+      updatedAt: 'updateDate'
+    }
   }
-  // {
-  // timestamps: {
-  //   createdAt: 'creationDate',
-  //   updatedAt: 'updateDate'
-  // }
-  // }
 );
 
 const Model = mongoose.model('Comment', commentSchema);

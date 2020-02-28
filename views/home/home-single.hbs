@@ -45,7 +45,7 @@
   <ul>
     <li>{{#each tasks}}
         <a href="/tasks/{{_id}}">
-          <h6>{{title}} (Urgency - {{urgency}} /  Price - {{price.amount}} {{price.currency}}) </h6>
+          <h6>{{title}} (Urgency - {{urgency}}{{#if price.amount}} /  Price - {{price.amount}} {{price.currency}}){{else}}) {{/if}}</h6>
         </a>
       {{/each}}</li>
     </ul>
