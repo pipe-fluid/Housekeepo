@@ -1,11 +1,32 @@
 <h1>{{home.name}}</h1>
-
+{{!-- 
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Home Members</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home Info</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Home Info</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+ --}}
     {{#if home.pictures}}
       <figure class="card-body card d-flex flex-column justify-content-center align-items-center">
-        <img style="max-width:400px;max-height:240px"src="{{home.pictures}}" alt="{{home.name}}">
+        <img class="rounded-lg" style="max-width:400px;max-height:240px"src="{{home.pictures}}" alt="{{home.name}}">
       </figure>
     {{/if}}
-
+<hr>
     <article class="mb-5 d-flex flex-column justify-content-center align-items-center" style="margin">
       <div class="container margin">
         <div class="row">
@@ -39,19 +60,19 @@
       <input class="btn-dark btn rounded-lg" type="submit" value="Create a new task" />
   </form>
 </div>
-  
-<div class="nav2 d-flex flex-column justify-content-center align-items-center">
+  <hr> 
+<div class="d-flex flex-column justify-content-center align-items-center">
 <h5><strong>Your task list</strong></h5>
-  <ul>
-    <li>{{#each tasks}}
-        <a href="/tasks/{{_id}}">
-          <h6>{{title}} (Urgency - {{urgency}}{{#if price.amount}} /  Price - {{price.amount}} {{price.currency}}){{else}}) {{/if}}</h6>
+  <ul style="li" class="li" >
+    <li style="li" class="li" >{{#each tasks}}
+        <a style="li" class="li" href="/tasks/{{_id}}">
+          <h6 style="li" class="li" >{{title}} (Urgency - {{urgency}}{{#if price.amount}} /  Price - {{price.amount}} {{price.currency}}){{else}}) {{/if}}</h6>
         </a>
       {{/each}}</li>
     </ul>
   </div>
-
-<div class = "nav d-flex flex-column justify-content-center align-items-center rounded-lg">
+<hr>
+<div class = "d-flex flex-column justify-content-center align-items-center rounded-lg">
   <form style="width: 50%"action="/home/invite/{{home._id}}" method="post">
     <label for="email">Invite your flatmates & loved ones to join this list :) </label>
     <input name="email" type="email" placeholder="Email here" />
