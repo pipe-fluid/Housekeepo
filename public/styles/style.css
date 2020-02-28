@@ -54,8 +54,8 @@ p {
     margin-bottom: 1rem; }
 
 img {
-  width: 100%;
-  max-width: 100%; }
+  width: 400px;
+  max-width: 400px; }
 
 form {
   display: flex;
@@ -148,5 +148,9 @@ header .overlay {
     background: url("https://source.unsplash.com/oakaqTozkv8/1600x900") black no-repeat center center scroll; }
   header video {
     display: none; } }
+
+.margin {
+  color: black;
+  margin: auto; }
 
 /*# sourceMappingURL=style.css.map */

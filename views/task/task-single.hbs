@@ -1,15 +1,20 @@
 <h1>{{task.title}}</h1>
+<div class="row">
+  <div class="col-12 col-md-8">
+    {{#each comments}}
+      <small>{{creationDate}}</small><br>
+      <strong>{{author.name}}:</strong><br>
+      {{content}}<br>
+  </div>
 
-  {{#each comments}}
-    <small>{{creationDate}}</small><br>
-    <strong>{{author.name}}:</strong><br>
-    {{content}}<br>
-    <hr>
-
-    <form style="width: 50%" action="/tasks/{{task._id}}/comments/{{_id}}/delete" method="POST" name="delete" id="delete">
-      <button class="btn btn-dark rounded-lg">Delete Comment</button>
+<div class="col-6 col-md-4">
+    <form style="width: 30%" action="/tasks/{{task._id}}/comments/{{_id}}/delete" method="POST" name="delete" id="delete">
+      <button class="btn btn-danger rounded-lg"><ion-icon name="trash-outline" size="large"></ion-icon></button>
     </form>
   {{/each}}
+</div>
+</div>
+  <hr>
 
   <div class = "d-flex flex-column justify-content-center align-items-center">
 
@@ -21,6 +26,3 @@
       <input class="btn btn-dark rounded-lg" type="submit" value="Add a comment" />
   </form>
 </div>
-
-{{!-- <a href="/tasks/{{task._id}}/edit">Edit or delete the task</a>
-<a href="/tasks/{{task._id}}/comment">Make a comment</a> --}}
