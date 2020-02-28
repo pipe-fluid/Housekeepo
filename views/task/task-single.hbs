@@ -5,6 +5,10 @@
     <strong>{{author.name}}:</strong><br>
     {{content}}<br>
     <hr>
+
+    <form style="width: 50%" action="/tasks/{{task._id}}/comments/{{_id}}/delete" method="POST" name="delete" id="delete">
+      <button class="btn btn-dark rounded-lg">Delete Comment</button>
+    </form>
   {{/each}}
 
   <div class = "d-flex flex-column justify-content-center align-items-center">

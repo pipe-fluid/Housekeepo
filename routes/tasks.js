@@ -121,6 +121,22 @@ router.post('/:taskId/edit', routeGuard(true), (req, res, next) => {
     });
 });
 
+router.post('/:taskId/comments/:commentId/delete', routeGuard(true), (req, res, next) => {
+  const commentId = req.params.commentId;
+  const taskId = req.params.taskId;
+  console.log(req.params);
+  Comment.findByIdAndDelete({ _id: commentId })
+    .then(deleted => {
+      console.log('deleted', deleted);
+      res.redirect(`/tasks/${taskId}`);
+    })
+    .catch(error => {
+      console.log(error);
+
+      next(error);
+    });
+});
+
 router.post('/:taskId/delete', routeGuard(true), (req, res, next) => {
   const taskId = req.params.taskId;
   console.log(taskId);
@@ -156,16 +172,5 @@ router.get('/:taskId', (req, res, next) => {
       next(error);
     });
 });
-
-//   Home.findById(homeId)
-//     .populate('members')
-//     .then(homeInfo => {
-//       home = homeInfo;
-//       return Task.find({ home: homeId });
-//     })
-//     .then(tasks => {
-//       console.log(home);
-//       res.render('./home/home-single', { home, tasks });
-//     })
 
 module.exports = router;
