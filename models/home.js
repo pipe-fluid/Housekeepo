@@ -21,7 +21,7 @@ const homeSchema = new mongoose.Schema({
     type: String
   },
   phone: {
-    type: Number
+    type: String
   },
   pictures: {
     type: String
