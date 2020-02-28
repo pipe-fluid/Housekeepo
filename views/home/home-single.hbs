@@ -51,14 +51,15 @@
     </div>
   </article>
 
-<div class ="d-flex flex-row justify-content-center align-items-center">
+<div class ="d-flex flex-column justify-content-center align-items-center">
+  <form action="/tasks/{{home._id}}/create">
+      <input class="btn-dark btn rounded-lg" type="submit" value="Create a new task" />
+  </form>
+  
   <form  action="/home/{{home._id}}/edit">
       <input class="btn-outline-primary btn rounded-lg" type="submit" value="Edit home info" />
   </form>
 
-  <form action="/tasks/{{home._id}}/create">
-      <input class="btn-dark btn rounded-lg" type="submit" value="Create a new task" />
-  </form>
 </div>
   <hr> 
 <div class="d-flex flex-column justify-content-center align-items-center">

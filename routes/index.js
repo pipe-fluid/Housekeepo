@@ -7,7 +7,7 @@ const Task = require('../models/task');
 const Home = require('../models/home');
 
 router.get('/', (req, res) => {
-  res.render('index', { title: 'Housekeepo!' });
+  res.render('index', { title: 'Housekeepo' });
   console.log('i am logged in', req.session);
 });
 

@@ -149,4 +149,8 @@ header .overlay {
   header video {
     display: none; } }
 
+.margin {
+  color: black;
+  margin: auto; }
+
 /*# sourceMappingURL=style.css.map */
