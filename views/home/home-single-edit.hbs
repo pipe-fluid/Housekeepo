@@ -2,7 +2,7 @@
 
   <div class = "d-flex flex-column justify-content-center align-items-center">
     
-    <form style="width: 50%"="POST" action="/home/{{home._id}}/edit" enctype="multipart/form-data">
+    <form style="width: 50%" method="POST" action="/home/{{home._id}}/edit" enctype="multipart/form-data">
 
       <label for="name">Name</label>
       <input type="text" name="name" id="name" value="{{home.name}}"/>
