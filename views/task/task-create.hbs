@@ -3,7 +3,7 @@
 
 <form style = "width: 50%" method="POST" action="/tasks/{{homeId}}/create">
   <label for="input-title">Task Title</label>
-  <input type="text" name="title" id="input-title" placeholder="Name your task" maxlength="80"/>
+  <input class="rounded-lg" type="text" name="title" id="input-title" placeholder="Name your task" maxlength="80"/>
 
   <label for="input-urgency">How urgent is your task?</label>
   <select name="urgency">
@@ -13,14 +13,20 @@
   </select>
 
   <label for="deadline">Task deadline:</label>
-  <input type="date" id="deadline" name="deadline">
+  <input class="rounded-lg" type="date" id="deadline" name="deadline">
 
   {{!-- <label for="input-photos">Pictures</label>
   <input type="file" name="photos" id="input-photos" accept="image/*" multiple /> --}}
 
+<<<<<<< HEAD
+  <label class="rounded-lg"for="input-price">Price:</label>
+  <label class="rounded-lg" for="input-currency"></label>
+  <select name="currency">
+=======
   <label for="input-price">Price:</label>
   <label for="input-currency"></label>
   <select id="currency" name="currency">
+>>>>>>> 5c27bbfcf8f5fc629b2733d5aa7a35f250920699
     <option value="EUR" selected>(EUR) Euro</option> 
     <option value="DOL">(DOL) American Dolar</option>
     <option value="ARS">(ARS) Argentinian Peso</option>
@@ -37,7 +43,7 @@
     <option value="UAH">(UAH) Ukrainian Hryvnia</option>
   </select>
   <label for="input-amount">Amount:</label>
-  <input type="number" name="amount" id="input-title" min="0"/>
+  <input class="rounded-lg" type="number" name="amount" id="input-title" min="0"/>
 
   <button class="btn btn-dark rounded-lg" >Create Task</button>
 </form>
