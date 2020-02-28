@@ -1,18 +1,20 @@
 <h1>{{task.title}}</h1>
 
-{{#each comments}}
-  <strong>{{author.name}}:</strong><br>
-  {{content}}<br>
-{{/each}}
+  {{#each comments}}
+    <strong>{{author.name}}:</strong><br>
+    {{content}}<br>
+  {{/each}}
 
-<form action="/tasks/{{task._id}}/edit">
-    <input type="submit" value="Edit task information" />
-</form>
+  <div class = "d-flex flex-column justify-content-center align-items-center">
 
-<form action="/tasks/{{task._id}}/comment">
-    <input type="submit" value="Add a comment" />
-</form>
+  <form style="width:50%" action="/tasks/{{task._id}}/edit">
+      <input type="submit" value="Edit task information" />
+  </form>
 
+  <form style="width:50%" action="/tasks/{{task._id}}/comment">
+      <input type="submit" value="Add a comment" />
+  </form>
+</div>
 
 {{!-- <a href="/tasks/{{task._id}}/edit">Edit or delete the task</a>
 <a href="/tasks/{{task._id}}/comment">Make a comment</a> --}}
