@@ -75,11 +75,6 @@ passport.use(
   })
 );
 
-// Strategy for sign in
-// Strategy for sign up
-// Tell passport how to serialize user
-// Tell passport how to deserialize user
-
 passport.serializeUser((user, callback) => {
   callback(null, user._id);
 });
@@ -98,7 +93,7 @@ const githubStrategy = new PassportGithubStrategy(
   {
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/authentication/github-callback',
+    callbackURL: 'https://households-web-app.herokuapp.com/authentication/github-callback',
     scope: 'user:email'
   },
   (accessToken, refreshToken, profile, callback) => {
@@ -109,8 +104,6 @@ const githubStrategy = new PassportGithubStrategy(
       githubUsername: profile.username,
       email: profile.emails.find(object => object.primary).value,
       photo: profile.photos.length ? profile.photos[0].value : undefined,
-      // ...profile.photos.length ? { photo: profile.photos[0].value } : {},
-      // ...(profile.photos.length && { photo: profile.photos[0].value }),
       location: profile._json.location
     };
     console.log(data);
