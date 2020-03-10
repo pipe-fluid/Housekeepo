@@ -1,5 +1,7 @@
 'use strict';
 
+require('dotenv').config();
+
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
@@ -100,7 +102,7 @@ const githubStrategy = new PassportGithubStrategy(
     console.log(profile);
     const data = {
       name: profile.displayName,
-      githubId: profile.id,
+      githubID: profile.id,
       githubUsername: profile.username,
       email: profile.emails.find(object => object.primary).value,
       photo: profile.photos.length ? profile.photos[0].value : undefined,
