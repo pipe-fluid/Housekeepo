@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./server",
+    "start": "node app.js",
     "dev": "nodemon ./server -e js,json,html,hbs,pug",
     "dev:debug": "DEBUG=households-app* npm run dev",
     "lint": "eslint ."
