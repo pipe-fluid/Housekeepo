@@ -1,5 +1,6 @@
 'use strict';
 
+require('dotenv').config();
 const { join } = require('path');
 const express = require('express');
 const createError = require('http-errors');
